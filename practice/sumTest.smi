@@ -1,0 +1,6 @@
+_require "basis.smi"
+_require "reify.smi"
+_require "./S.smi"
+_require "./S1.smi"
+_require "./S2.smi"
+_require "./S3.smi"
