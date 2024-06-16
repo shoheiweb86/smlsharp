@@ -1,0 +1,1 @@
+val _ = app PrintInterface.execPrint Libs.libs
