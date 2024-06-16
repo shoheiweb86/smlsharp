@@ -1,0 +1,8 @@
+structure Bool =
+  struct
+    datatype bool = false | true
+    val not = fn : bool -> bool
+    val toString = fn : bool -> string
+    val scan = fn : ['a. ('a -> (char * 'a) option) -> 'a -> (bool * 'a) option]
+    val fromString = fn : string -> bool option
+  end

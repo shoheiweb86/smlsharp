@@ -10,5 +10,3 @@ PrintInterface.o: PrintInterface.sml PrintInterface.smi
 	$(SMLSHARP) $(SMLFLAGS) -o PrintInterface.o -c PrintInterface.sml
 main.o: main.sml Libs.smi PrintInterface.smi main.smi
 	$(SMLSHARP) $(SMLFLAGS) -o main.o -c main.sml
-clean:
-	rm -f Results/* main ./*.o
