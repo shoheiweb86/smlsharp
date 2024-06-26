@@ -13,8 +13,8 @@ struct
         | Node ((k, v), L, R) => 
           (case comp (k, key) of
             EQUAL => v
-          | LESS => find (R, key))
-          | _ => find (L, key)
+          | LESS => find (R, key)
+          | _ => find (L, key))
 
       fun enter ((key, value), dict) = 
         case dict of
@@ -22,12 +22,8 @@ struct
         | Node ((k, v), L, R) =>
           (case comp (k, key) of
             EQUAL => Node ((key, value), L, R)
-          | LESS => Node ((k, v), L, enter ((key, value), R)
-          | _ => Node ((k, v), enter ((key, value), L), R)
-      
-      Node ((k, v), )
-
-      fun enter ((k, v), dict) = (k, v) :: dict
+          | LESS => Node ((k, v), L, enter ((key, value), R))
+          | _ => Node ((k, v), enter ((key, value), L), R))
     in
       {find = find, empty = empty, enter = enter}
     end
