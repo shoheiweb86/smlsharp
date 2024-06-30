@@ -10,11 +10,6 @@ struct
       NONE => NONE
     | SOME s => stringToPos s
 
-  fun input () = 
-    case readPos () of
-      NONE => nil
-    | SOME pos => pos :: input ()
-
   fun colorToString Game.BLACK = "●"
     | colorToString Game.WHITE = "◯"
 
@@ -34,10 +29,13 @@ struct
     | gameToString {board, next = NONE} =
       boardToString board ^ "終局\n"
 
-  fun mainLoop game = (print (gameToString game);
+  fun mainLoop game = 
+    (print (gameToString game);
+     print "\nReading position...\n";  (* ログメッセージ *)
     case readPos () of
-      NONE => ()
+      NONE => (print "No position entered. Exiting.\n"; ())
     | SOME pos =>
+      val _ = print ("Position entered: " ^  pos ^ "\n");
       case Game.step game pos of
         NONE => ()
       | SOME game => mainLoop game)
