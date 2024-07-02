@@ -35,9 +35,8 @@ struct
     case readPos () of
       NONE => (print "No position entered. Exiting.\n"; ())
     | SOME pos =>
-      val _ = print ("Position entered: " ^  pos ^ "\n");
       case Game.step game pos of
-        NONE => ()
+        NONE => (print "pos none\n"; ())
       | SOME game => mainLoop game)
 end
 val _ = Main.mainLoop Game.init
